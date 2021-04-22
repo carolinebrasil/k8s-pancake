@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  labels:
+    run: nginx
+  name: nginx
+  namespace: lolipop
+spec:
+  containers:
+  - image: nginx
+    imagePullPolicy: Always
+    name: nginx
+  dnsPolicy: ClusterFirst
+  restartPolicy: Always

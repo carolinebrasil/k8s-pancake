@@ -1,0 +1,34 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    run: nginx
+  name: nginx-limitado
+  namespace: default
+spec:
+  replicas: 10
+  selector:
+    matchLabels:
+      run: nginx
+  template:
+    metadata:
+      labels:
+        run: nginx
+    spec:
+      containers:
+      - image: nginx
+        imagePullPolicy: Always
+        name: nginx
+        ports:
+        - containerPort: 80
+          protocol: TCP
+        resources:
+          limits:
+            memory: 512Mi
+            cpu: "500m"
+          requests:
+            memory: 256Mi
+            cpu: "250m"
+      dnsPolicy: ClusterFirst
+      restartPolicy: Always
+      terminationGracePeriodSeconds: 30
