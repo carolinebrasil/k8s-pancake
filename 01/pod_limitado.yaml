@@ -1,0 +1,9 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: limit-pod
+  namespace: gummy-bear
+spec: 
+  containers:
+  - name: meu-container
+    image: nginx

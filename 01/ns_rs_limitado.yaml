@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: LimitRange
+metadata:
+  name: limitando-recursos
+spec:
+  limits:
+  - default:
+      cpu: "1000m"
+      memory: 256Mi
+    defaultRequest:
+      cpu: "500m"
+      memory: 128Mi
+    type: Container
