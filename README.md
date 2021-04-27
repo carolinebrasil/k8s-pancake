@@ -6,12 +6,9 @@
 ---
 
 
-#### Comandos básicos :grape:
+#### Comandos básicos :smile:
 
 ```
-bash
-
-
 kubectl get nodes 
 
 kubectl get pods
@@ -24,6 +21,3 @@ kubectl get deployment
 ```
 
 #### Comandos para facilitar a vida :sparkles:
-
-
-
