@@ -7,21 +7,26 @@ spec:
     matchLabels:
       app: giropops
   replicas: 10
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 5
   template:
     metadata:
       labels:
         app: giropops
-        version: "2.0.0"
+        version: "1.0.0"
       annotations:
         prometheus.io/scrape: "true"
         prometheus.io/port: "32111"
     spec:
       containers:
       - name: giropops
-        image: linuxtips/nginx-prometheus-exporter:2.0.0
+        image: linuxtips/nginx-prometheus-exporter:1.0.0
         env:
         - name: VERSION
-          value: "2.0.0"
+          value: "1.0.0"
         livenessProbe:
           httpGet:
             path: /

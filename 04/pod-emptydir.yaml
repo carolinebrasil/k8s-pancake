@@ -1,0 +1,19 @@
+apiVersion: v1
+kind: Pod
+metadata: 
+  name: busybox
+  namespace: default
+spec:
+  containers:
+  - image: busybox
+    name: busy
+    command:
+      - sleep
+      - "3600"
+    volumeMounts:
+    - mountPath: /lollipop
+      name: lollipop-dir
+  volumes:
+  - name: lollipop-dir
+    emptyDir: {}
+
