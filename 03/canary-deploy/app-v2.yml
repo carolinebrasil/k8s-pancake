@@ -1,11 +1,11 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: giropops-v2
+  name: lollipop-v2
 spec:
   selector:
     matchLabels:
-      app: giropops
+      app: lollipop
   replicas: 10
   strategy:
     type: RollingUpdate
@@ -15,15 +15,15 @@ spec:
   template:
     metadata:
       labels:
-        app: giropops
-        version: "1.0.0"
+        app: lollipop
+        version: "2.0.0"
       annotations:
         prometheus.io/scrape: "true"
         prometheus.io/port: "32111"
     spec:
       containers:
-      - name: giropops
-        image: linuxtips/nginx-prometheus-exporter:1.0.0
+      - name: lollipop
+        image: linuxtips/nginx-prometheus-exporter:2.0.0
         env:
         - name: VERSION
           value: "1.0.0"

@@ -1,13 +1,16 @@
-apiVersion: extensions/v1beta1
+apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: giropops-v1
+  name: lollipop-v1
 spec:
-  replicas: 1
+  selector:
+    matchLabels:
+      app: lollipop
+  replicas: 10
   template:
     metadata:
       labels:
-        app: giropops
+        app: lollipop
         version: "1.0.0"
       annotations:
         prometheus.io/scrape: "true"

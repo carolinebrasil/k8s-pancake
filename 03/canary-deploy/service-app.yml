@@ -2,10 +2,10 @@ apiVersion: v1
 kind: Service
 metadata:
   labels:
-    app: giropops
+    app: lollipop
     run: nginx
     track: stable
-  name: giropops
+  name: lollipop
   namespace: default
 spec:
   externalTrafficPolicy: Cluster
@@ -21,6 +21,6 @@ spec:
     protocol: TCP
     targetPort: 32111
   selector:
-    app: giropops
+    app: lollipop
   sessionAffinity: None
   type: NodePort
