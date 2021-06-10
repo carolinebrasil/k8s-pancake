@@ -15,5 +15,5 @@ spec:
             command:
             - /bin/sh
             - -c
-            - date; echo Bem Vindo ao K8S-pancake; sleep 30
+            - date; echo Welcome to K8S-pancake study lab!; sleep 30
           restartPolicy: OnFailure
