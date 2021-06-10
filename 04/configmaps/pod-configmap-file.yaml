@@ -1,0 +1,19 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: busybox-configmap-file
+  namespace: default
+spec:
+  containers:
+  - image: busybox
+    name: busy-configmap
+    command:
+      - sleep
+      - "3600"
+    volumeMounts:
+    - name: meu-configmap-vol
+      mountPath: /tmp/fruits
+  volumes:
+  - name: meu-configmap-vol
+    configMap:
+      name: color-fruits
