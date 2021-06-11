@@ -1,0 +1,7 @@
+# kubectl create serviceaccount <name>
+
+# kubectl create clusterrolebinding <name> --serviceaccount=default:<service account> --clusterrole=cluster-admin
+
+
+
+
