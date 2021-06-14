@@ -1,0 +1,16 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: nginx-ingress
+spec:
+  rules:
+  - host: ec2-3-237-41-36.compute-1.amazonaws.com
+    http:
+      paths:
+      - backend:
+          service:
+            name: nginx-ingress
+            port:
+              number: 18080
+        path: /nginx_status
+        pathType: Prefix

@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: app-01
+spec: 
+  selector:
+    matchLabels:
+      app: app-01
+  replicas: 2
+  template:
+    metadata:
+      labels:
+        app: app-01
+    spec:
+      containers:
+      - name: app-01
+        image: dockersamples/static-site
+        env:
+        - name: AUTHOR
+          value: LOLLIPOP
+        ports:
+        - containerPort: 80 

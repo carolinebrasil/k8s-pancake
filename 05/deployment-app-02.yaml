@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: app-02
+spec: 
+  selector:
+    matchLabels:
+      app: app-02
+  replicas: 2
+  template:
+    metadata:
+      labels:
+        app: app-02
+    spec:
+      containers:
+      - name: app-02
+        image: dockersamples/static-site
+        env:
+        - name: AUTHOR
+          value: GUMMY-BEAR
+        ports:
+        - containerPort: 80 
