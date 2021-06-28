@@ -6,7 +6,7 @@
 	- kubectl get svc (ClusterIP) and curl + IP svc returns index.html from NGINX
 3 - Colocar um node para que não execute nenhum containers.
 
-****PT 1 - include noschedule on the node k8s-03
+**** PT 1 - include noschedule on the node k8s-03
 
 ``` bash
 	#kubectl taint nodes k8s-03 key1=value1:NoSchedule
@@ -29,7 +29,7 @@
 	Taints:             key1=value1:NoSchedule
 ``` 
 
-****PT 2 - create deployment with 10 replicas 
+**** PT 2 - create deployment with 10 replicas 
 	03-node-without-pod_no-schedule_.yaml
 
 ``` bash
@@ -51,7 +51,7 @@ NAME                                         READY   STATUS    RESTARTS   AGE   
 03-deploy-test-taint-node-5f8bd444db-vs6db   1/1     Running   0          55s   10.40.0.2    k8s-02   <none>           <none>
 03-deploy-test-taint-node-5f8bd444db-wgckp   1/1     Running   0          55s   10.40.0.10   k8s-02   <none>           <none>
 ```     
-****PT 3 - remove the noschedule on node k8s-03 (untaint) and add + 5 replicas in deployment
+**** PT 3 - remove the noschedule on node k8s-03 (untaint) and add + 5 replicas in deployment
 
 ``` bash
 # kubectl taint nodes k8s-03 key1=value1:NoSchedule-
@@ -80,4 +80,25 @@ NAME                                         READY   STATUS              RESTART
 4 - Criar um PV Hostpath.
 	04-pv-hostpath.yaml
 	04-pod-with-pv-hostpath.yaml
+
+
+5 - Criar um initcontainer para executar uma tarefa necessária para a subida do container principal.
+	05-init-container-other.yaml
+	05-init-container-svc.yaml
+	
+6 - Criar um daemonset.
+	06-deamonset-fluentd.yaml
+
+7 - Criar um deployment do nginx com 5 réplicas.
+	07-deploy-simples-5-replicas.yaml
+	
+8 - Ver quais os pods que mais estão consumindo cpu através do kubectl top.
+	kubectl top pod XXXX --containers
+	
+9 - Organizar a saída do comando "kubectl get pods" pelo tamanho do capacity storage.
+	PD
+
+10 - Qual a quantidade de nodes que estão aceitando novos containers?
+	kubectl describe nodes | grep -i taint
+
 
