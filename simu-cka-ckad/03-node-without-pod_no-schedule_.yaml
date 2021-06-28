@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: 03-deploy-test-taint-node
+spec:
+  replicas: 10 
+  selector:
+    matchLabels:
+      app: 03-deploy-test-taint-node
+  template:
+    metadata:
+      labels:
+        app: 03-deploy-test-taint-node
+    spec:
+      containers:
+      - image: nginx
+        name: nginx
+        resources: {}
+status: {}
