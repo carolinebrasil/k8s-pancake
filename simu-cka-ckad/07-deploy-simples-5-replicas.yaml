@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: 07-deploy-5-replicas
+  name: 07-deploy-5-replicas
+spec:
+  replicas: 5
+  selector:
+    matchLabels:
+      app: 07-deploy-5-replicas
+  strategy: {}
+  template:
+    metadata:
+      labels:
+        app: 07-deploy-5-replicas
+    spec:
+      containers:
+      - image: nginx
+        name: nginx
+        resources: {}
+status: {}
