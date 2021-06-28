@@ -6,7 +6,7 @@ metadata:
     app: pod-para-service
 spec:
   selector:
-    app: pod-com-service
+    app: pod-para-service
   ports:
   - protocol: TCP
     port: 80
